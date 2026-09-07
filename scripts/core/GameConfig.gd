@@ -8,6 +8,10 @@ const MATCH_DURATION: float = 120.0
 const INVULNERABILITY_TIME: float = 0.5
 const OVERCHARGE_RANGE: int = 4
 
+const BOARD_WIDTH: int = 11
+const BOARD_HEIGHT: int = 15
+const CELL_SIZE: float = 64.0
+
 static func as_dictionary() -> Dictionary:
     return {
         "player_speed": PLAYER_SPEED,
@@ -17,4 +21,7 @@ static func as_dictionary() -> Dictionary:
         "match_duration": MATCH_DURATION,
         "invulnerability_time": INVULNERABILITY_TIME,
         "overcharge_range": OVERCHARGE_RANGE,
+        "board_width": BOARD_WIDTH,
+        "board_height": BOARD_HEIGHT,
+        "cell_size": CELL_SIZE,
     }
