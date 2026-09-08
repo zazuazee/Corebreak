@@ -226,3 +226,53 @@ Bugfix / QA / Gameplay
 
 - Validar visualmente o Player e o movimento em `scenes/gameplay/Game.tscn` em ambiente gráfico com teclado conectado.
 - Manter o escopo restrito à Sprint 1.2 e não avançar para Sprint 1.3.
+
+---
+
+## 2026-09-08 — Sprint 1.3: Core
+
+### 1.3 Tipo
+
+Feature / Gameplay / QA
+
+### 1.3 Alterações
+
+- Criada a entidade independente `Core` em `scripts/entities/Core.gd` e sua cena em `scenes/entities/Core.tscn`.
+- Implementados os estados `AVAILABLE`, `ACTIVE`, `RESOLVING` e `CONSUMED`.
+- Reutilizada a configuração `GameConfig.CORE_ACTIVATION_TIME` com valor de 1.5 segundos.
+- Integrado o container `Cores` e a criação coordenada pelo `Game.gd`.
+- Atualizado o `Player.gd` para solicitar a colocação via ação `place_core`, mantendo uma única carga disponível.
+- Adicionada representação visual temporária e indicador circular de progresso no próprio Core.
+- Criado `tests/unit/test_core.gd` para validar ciclo de vida, posição, bloqueio de duplicidade e posição inválida.
+
+### 1.3 Escopo preservado
+
+- Não foi criada `EnergyWave.gd` nem `EnergyWave.tscn`.
+- O estado `RESOLVING` permanece ativo e não dispara onda, dano, destruição de BREAKABLE ou consumo automático.
+
+### 1.3 Próximo passo
+
+- Validação automatizada concluída; manter o escopo sem implementar a Sprint 1.4.
+
+### 1.3 Testes executados
+
+- `test_input_map.gd`: passou com `InputMap validation passed`.
+- `test_player_movement.gd`: passou com `Player movement validation passed`.
+- `test_board.gd`: passou com `Board validation passed`.
+- `test_board_config.gd`: passou com `Board config validation passed`.
+- `test_core.gd`: passou com `Core validation passed`.
+- Projeto iniciado em modo headless com `--quit`: Main, GameManager, Board e Game carregaram sem erro crítico.
+
+### 1.3 Validação visual
+
+- A execução gráfica interativa não foi comprovada pelo ambiente de automação desta sessão.
+- A integração foi exercitada pela cena real `Game.tscn` dentro de `test_core.gd`, incluindo criação do Player, container `Cores` e colocação coordenada do Core.
+- A confirmação manual de pressionar Espaço/clique, movimentar após a colocação e observar a mudança visual para `RESOLVING` deve ser feita no editor ou executável Godot com interface gráfica.
+
+### 1.3 Resultado
+
+- Core independente criado e integrado ao fluxo `Player -> Game -> Core`.
+- Estados e timer de 1.5 segundos validados.
+- Core permanece em `RESOLVING` sem gerar Energy Wave ou ser destruído automaticamente.
+- Uma segunda colocação e posições inválidas são bloqueadas sem erro crítico.
+- Warnings restantes são apenas leaks de CanvasItem/ObjectDB e resources still in use emitidos pelo encerramento headless dos testes de Node2D.

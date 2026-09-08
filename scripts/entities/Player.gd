@@ -7,8 +7,9 @@ var grid_position: Vector2i = Vector2i.ZERO
 var max_hp: int = 3
 var current_hp: int = 3
 var score: int = 0
-var can_place_core: bool = true
+var has_core_available: bool = true
 var is_eliminated: bool = false
+var game: Node = null
 
 var movement_speed: float = GameConfig.PLAYER_SPEED
 var world_position: Vector2 = Vector2.ZERO
@@ -19,6 +20,9 @@ func _ready() -> void:
 
 func set_board(target_board: Node) -> void:
 	board = target_board
+
+func set_game(target_game: Node) -> void:
+	game = target_game
 
 func spawn_at(spawn_cell: Vector2i) -> void:
 	if board == null:
@@ -63,3 +67,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		try_move(Vector2i.LEFT)
 	elif event.is_action_pressed("move_right"):
 		try_move(Vector2i.RIGHT)
+	elif event.is_action_pressed("place_core"):
+		if game != null and has_core_available and game.has_method("request_core_placement"):
+			game.request_core_placement(self)
