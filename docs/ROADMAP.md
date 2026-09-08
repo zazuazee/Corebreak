@@ -28,11 +28,11 @@ v1.0  → Lançamento Comercial
 
 ## 3. Fase 0 — Preparação
 
-### Objetivo
+### 3.1 Objetivo
 
 Preparar o repositório e a documentação antes da implementação.
 
-### Checkpoint
+### 3.2 Checkpoint
 
 O projeto deve:
 
@@ -45,7 +45,7 @@ O projeto deve:
 
 ## 4. Fase 1 — MVP Core Gameplay
 
-### Objetivo
+### 4.1 Objetivo
 
 Criar a primeira versão realmente jogável do COREBREAK.
 

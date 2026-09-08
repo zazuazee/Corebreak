@@ -152,19 +152,19 @@ O sistema deve controlar vitória/derrota e resultados finais da partida.
 
 Nesta sprint NÃO implementar:
 
-- arena;
-- grid;
-- player;
-- movimento;
-- Core;
-- Energy Wave;
-- dano;
-- IA;
-- power-ups;
-- menus;
-- HUD;
-- tutorial;
-- áudio final;
-- multiplayer.
+* arena;
+* grid;
+* player;
+* movimento;
+* Core;
+* Energy Wave;
+* dano;
+* IA;
+* power-ups;
+* menus;
+* HUD;
+* tutorial;
+* áudio final;
+* multiplayer.
 
 O objetivo é exclusivamente preparar a fundação do projeto.
